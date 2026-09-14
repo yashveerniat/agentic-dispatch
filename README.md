@@ -1,7 +1,7 @@
 # ShopSaathi Auto-Dispatch Agent
 
 **Agentic AI Hackathon — Tech Zephyr 4.0, IIT Bhubaneswar**
-Team: _[Fill in your team name]_
+Team: Rising coder
 
 An autonomous dispatch agent for [ShopSaathi](https://shopsaathi-e778c.web.app),
 a cooperative-owned hyperlocal worker-matching platform. Given a
