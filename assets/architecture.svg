@@ -1,0 +1,91 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1F497D"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#C0504D"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="600" y="34" text-anchor="middle" font-size="24" font-weight="bold" fill="#1F497D">ShopSaathi Auto-Dispatch Agent — System Architecture</text>
+
+  <!-- Human interaction: input -->
+  <rect x="40" y="90" width="220" height="80" rx="10" fill="#EEECE1" stroke="#1F497D" stroke-width="2"/>
+  <text x="150" y="122" text-anchor="middle" font-size="15" font-weight="bold" fill="#1F497D">Household</text>
+  <text x="150" y="142" text-anchor="middle" font-size="12" fill="#333">"I need a plumber</text>
+  <text x="150" y="157" text-anchor="middle" font-size="12" fill="#333">tomorrow morning..."</text>
+  <text x="150" y="80" text-anchor="middle" font-size="11" font-style="italic" fill="#666">Human Interaction (goal input)</text>
+
+  <!-- Agent controller -->
+  <rect x="420" y="80" width="360" height="130" rx="10" fill="#1F497D"/>
+  <text x="600" y="112" text-anchor="middle" font-size="16" font-weight="bold" fill="white">Agent Controller</text>
+  <text x="600" y="132" text-anchor="middle" font-size="12" fill="#DCE6F1">Claude (LLM reasoning core)</text>
+  <text x="600" y="152" text-anchor="middle" font-size="12" fill="#DCE6F1">Goal decomposition · Dynamic action selection</text>
+  <text x="600" y="170" text-anchor="middle" font-size="12" fill="#DCE6F1">Planning next step from tool results</text>
+  <text x="600" y="188" text-anchor="middle" font-size="12" fill="#DCE6F1">Adaptation loop on rejection/timeout</text>
+
+  <path d="M260,130 L415,130" stroke="#1F497D" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Memory/state -->
+  <rect x="900" y="90" width="250" height="80" rx="10" fill="#F2F2F2" stroke="#4F81BD" stroke-width="2"/>
+  <text x="1025" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#4F81BD">Memory / State</text>
+  <text x="1025" y="138" text-anchor="middle" font-size="11" fill="#333">Message history +</text>
+  <text x="1025" y="153" text-anchor="middle" font-size="11" fill="#333">tried_worker_ids (session)</text>
+  <path d="M780,140 L895,140" stroke="#4F81BD" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M895,155 L780,155" stroke="#4F81BD" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Tools row -->
+  <text x="600" y="255" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Tools (function-calling)</text>
+
+  <rect x="80" y="275" width="270" height="90" rx="8" fill="#4F81BD"/>
+  <text x="215" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="white">get_available_workers()</text>
+  <text x="215" y="320" text-anchor="middle" font-size="11" fill="#DCE6F1">Retrieval: rank by skill,</text>
+  <text x="215" y="335" text-anchor="middle" font-size="11" fill="#DCE6F1">rating, distance</text>
+
+  <rect x="465" y="275" width="270" height="90" rx="8" fill="#4F81BD"/>
+  <text x="600" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="white">send_offer(worker_id)</text>
+  <text x="600" y="320" text-anchor="middle" font-size="11" fill="#DCE6F1">Action: notify worker,</text>
+  <text x="600" y="335" text-anchor="middle" font-size="11" fill="#DCE6F1">await accept/reject</text>
+
+  <rect x="850" y="275" width="270" height="90" rx="8" fill="#4F81BD"/>
+  <text x="985" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="white">confirm_booking()</text>
+  <text x="985" y="320" text-anchor="middle" font-size="11" fill="#DCE6F1">Action: finalize job,</text>
+  <text x="985" y="335" text-anchor="middle" font-size="11" fill="#DCE6F1">notify household</text>
+
+  <path d="M500,210 L215,270" stroke="#1F497D" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M600,210 L600,270" stroke="#1F497D" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M700,210 L985,270" stroke="#1F497D" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- External system -->
+  <rect x="80" y="410" width="270" height="70" rx="8" fill="#EEECE1" stroke="#4F81BD" stroke-width="2"/>
+  <text x="215" y="438" text-anchor="middle" font-size="13" font-weight="bold" fill="#4F81BD">Worker Database</text>
+  <text x="215" y="456" text-anchor="middle" font-size="11" fill="#333">(ShopSaathi / Firestore)</text>
+  <path d="M215,365 L215,405" stroke="#4F81BD" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="330" y="390" font-size="10" fill="#666">External system</text>
+
+  <!-- Evaluation -->
+  <rect x="465" y="410" width="270" height="70" rx="8" fill="#EEECE1" stroke="#4F81BD" stroke-width="2"/>
+  <text x="600" y="438" text-anchor="middle" font-size="13" font-weight="bold" fill="#4F81BD">Evaluation</text>
+  <text x="600" y="456" text-anchor="middle" font-size="11" fill="#333">accept? reject? timeout?</text>
+  <path d="M600,365 L600,405" stroke="#4F81BD" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Failure handling loop back -->
+  <path d="M600,480 C600,560 260,560 260,365" stroke="#C0504D" stroke-width="2.5" fill="none" stroke-dasharray="6,4" marker-end="url(#arrowRed)"/>
+  <text x="430" y="575" text-anchor="middle" font-size="12" font-weight="bold" fill="#C0504D">Failure Handling: on reject/timeout,</text>
+  <text x="430" y="592" text-anchor="middle" font-size="12" font-weight="bold" fill="#C0504D">re-plan with next-best candidate (no human needed)</text>
+
+  <!-- Final outcome -->
+  <path d="M985,365 L985,630" stroke="#1F497D" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="850" y="630" width="270" height="80" rx="10" fill="#1F497D"/>
+  <text x="985" y="662" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Household Notified</text>
+  <text x="985" y="682" text-anchor="middle" font-size="11" fill="#DCE6F1">Booking confirmed with</text>
+  <text x="985" y="697" text-anchor="middle" font-size="11" fill="#DCE6F1">worker + federation details</text>
+  <text x="985" y="618" text-anchor="middle" font-size="11" font-style="italic" fill="#666">Final Outcome</text>
+
+  <!-- Robustness note -->
+  <rect x="40" y="630" width="740" height="70" rx="8" fill="#FDF2E9" stroke="#F79646" stroke-width="1.5"/>
+  <text x="410" y="655" text-anchor="middle" font-size="12" font-weight="bold" fill="#B36B00">Robustness: if ALL candidates for a skill are exhausted without</text>
+  <text x="410" y="672" text-anchor="middle" font-size="12" font-weight="bold" fill="#B36B00">acceptance, the agent stops and reports a clear failure — it never fabricates a booking.</text>
+</svg>

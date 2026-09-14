@@ -1,0 +1,48 @@
+{
+  "workers": [
+    {
+      "id": "W101",
+      "name": "Ramesh Kumar",
+      "skill": "plumber",
+      "federation": "Bhubaneswar Labour Cooperative Society",
+      "rating": 4.8,
+      "distance_km": 1.2,
+      "available": true,
+      "simulated_response": "reject",
+      "simulated_reason": "Already booked for another job at that time slot"
+    },
+    {
+      "id": "W102",
+      "name": "Suresh Patra",
+      "skill": "plumber",
+      "federation": "Bhubaneswar Labour Cooperative Society",
+      "rating": 4.5,
+      "distance_km": 2.8,
+      "available": true,
+      "simulated_response": "reject",
+      "simulated_reason": "Outside preferred service radius today"
+    },
+    {
+      "id": "W103",
+      "name": "Manoj Sahoo",
+      "skill": "plumber",
+      "federation": "Cuttack Cooperative Workers Union",
+      "rating": 4.3,
+      "distance_km": 3.5,
+      "available": true,
+      "simulated_response": "accept",
+      "simulated_reason": "Available and confirmed"
+    },
+    {
+      "id": "W104",
+      "name": "Deepak Nayak",
+      "skill": "electrician",
+      "federation": "Bhubaneswar Labour Cooperative Society",
+      "rating": 4.9,
+      "distance_km": 1.8,
+      "available": true,
+      "simulated_response": "accept",
+      "simulated_reason": "Available and confirmed"
+    }
+  ]
+}
